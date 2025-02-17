@@ -61,7 +61,7 @@
                         <textarea name="description"
                                     id="description"
                                     rows="4"
-                                    class="mt-1 px-3 block w-full rounded-lg bg-black bg-opacity-50 text-menu-text transition-shadow duration-300
+                                    class="editor mt-1 px-3 block w-full rounded-lg
                                     @error('description')
                                         border-2 border-error-text focus:ring-2 focus:ring-error-text
                                     @else
