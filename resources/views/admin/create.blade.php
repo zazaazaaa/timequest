@@ -52,25 +52,23 @@
                     @enderror
                 </div>
 
-                <div id="editor">
-                        <p>Hello from CKEditor 5!</p>
-                </div>
-
-                <div">
+                <div>
                     <label for="description" class="block text-sm font-medium text-logo-gold">
                         Description <span class="text-error-text">*</span>
                     </label>
 
-                    <textarea name="description"
-                             id="description"
-                             rows="4"
-                             class="mt-1 px-3 block w-full rounded-lg bg-black bg-opacity-50 text-menu-text transition-shadow duration-300
-                             @error('description')
-                                 border-2 border-error-text focus:ring-2 focus:ring-error-text
-                             @else
-                                 border-2 border-logo-gold focus:ring-2 focus:ring-logo-gold
-                             @enderror"
-                             required>{{ old('description') }}</textarea>
+                    <div id="editor">
+                        <textarea name="description"
+                                    id="description"
+                                    rows="4"
+                                    class="mt-1 px-3 block w-full rounded-lg bg-black bg-opacity-50 text-menu-text transition-shadow duration-300
+                                    @error('description')
+                                        border-2 border-error-text focus:ring-2 focus:ring-error-text
+                                    @else
+                                        border-2 border-logo-gold focus:ring-2 focus:ring-logo-gold
+                                    @enderror"
+                                    required>{{ old('description') }}</textarea>
+                    </div>
                     @error('description')
                         <p class="mt-1 text-sm text-error-text">{{ $message }}</p>
                     @enderror

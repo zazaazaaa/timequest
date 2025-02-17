@@ -19,7 +19,7 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant:ital,wght@0,300;0,400;0,600;1,400&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.2.0/ckeditor5.css" />
+    <link rel="stylesheet" href="../../assets/vendor/ckeditor5.css">
     <script src="https://cdn.ckeditor.com/ckeditor5/44.2.0/ckeditor5.umd.js"></script>
 
     <style>
@@ -41,29 +41,47 @@
         @stack('scripts')
     </main>
     <script src="{{ mix('js/app.js') }}"></script>
-    <script>
-        const {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph
-        } = CKEDITOR;
-        const { FormatPainter } = CKEDITOR_PREMIUM_FEATURES;
+    <div class="main-container">
+            <div id="editor">
+                <p>Hello from CKEditor 5!</p>
+            </div>
+        </div>
+        <script type="importmap">
+            {
+                "imports": {
+                    "ckeditor5": "../../assets/vendor/ckeditor5.js",
+                    "ckeditor5/": "../../assets/vendor/"
+                }
+            }
+        </script>
+        <script type="module">
+            import {
+                ClassicEditor,
+                Essentials,
+                Paragraph,
+                Bold,
+                Italic,
+                Strikethrough,
+                Subscript,
+                Superscript,
+                Font
+            } from 'ckeditor5';
 
-        ClassicEditor
-            .create( document.querySelector( '#editor' ), {
-                licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzExMTM1OTksImp0aSI6ImFkZGZhZGE5LThjYmMtNGJlMC05MTY3LWY5NWQ5ZDc2MDgxNSIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCJdLCJ2YyI6IjdjMTk5NWQzIn0.N2NjPC76du-pHfeHXKLKQ3fzJ86ykYRnH0kgh8sYd0L68A3NHwtufULIZjUJ2EBS7G2fPFGfQyt8o5LORqS5kw',
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph, FormatPainter ],
-                toolbar: [
-                    'undo', 'redo', '|', 'bold', 'italic', '|',
-                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
-                    'formatPainter'
-                ]
-            } )
-            .then( /* ... */ )
-            .catch( /* ... */ );
-    </script>
+            ClassicEditor
+                .create( document.querySelector( '#editor' ), {
+                    licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzExMTM1OTksImp0aSI6ImFkZGZhZGE5LThjYmMtNGJlMC05MTY3LWY5NWQ5ZDc2MDgxNSIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCJdLCJ2YyI6IjdjMTk5NWQzIn0.N2NjPC76du-pHfeHXKLKQ3fzJ86ykYRnH0kgh8sYd0L68A3NHwtufULIZjUJ2EBS7G2fPFGfQyt8o5LORqS5kw',
+                    plugins: [ Essentials, Paragraph, Bold, Italic, Strikethrough, Subscript, Superscript, Font ],
+                    toolbar: [
+                        'undo', 'redo', '|', 'bold', 'italic', 'strikethrough', 'subscript', 'superscript', '|',
+                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                    ]
+                } )
+                .then( editor => {
+                    window.editor = editor;
+                } )
+                .catch( error => {
+                    console.error( error );
+                } );
+        </script>
 </body>
 </html>
