@@ -26,8 +26,8 @@
         @endif
 
         <div class="bg-black bg-opacity-50 rounded-lg shadow-lg p-6">
-            <form action="{{ route('admin.products.store') }}" 
-                  method="POST" 
+            <form action="{{ route('admin.products.store') }}"
+                  method="POST"
                   enctype="multipart/form-data"
                   class="space-y-6">
                 @csrf
@@ -36,14 +36,14 @@
                     <label for="name" class="block text-sm font-medium text-logo-gold">
                         Product Name <span class="text-error-text">*</span>
                     </label>
-                    <input type="text" 
-                           name="name" 
+                    <input type="text"
+                           name="name"
                            id="name"
                            value="{{ old('name') }}"
                            class="mt-1 px-3 block w-full rounded-lg bg-black bg-opacity-50 text-menu-text transition-shadow duration-300
-                           @error('name') 
-                               border-2 border-error-text focus:ring-2 focus:ring-error-text 
-                           @else 
+                           @error('name')
+                               border-2 border-error-text focus:ring-2 focus:ring-error-text
+                           @else
                                border-2 border-logo-gold focus:ring-2 focus:ring-logo-gold
                            @enderror"
                            required>
@@ -52,17 +52,22 @@
                     @enderror
                 </div>
 
-                <div>
+                <div id="editor">
+                        <p>Hello from CKEditor 5!</p>
+                </div>
+
+                <div">
                     <label for="description" class="block text-sm font-medium text-logo-gold">
                         Description <span class="text-error-text">*</span>
                     </label>
-                    <textarea name="description" 
+
+                    <textarea name="description"
                              id="description"
                              rows="4"
                              class="mt-1 px-3 block w-full rounded-lg bg-black bg-opacity-50 text-menu-text transition-shadow duration-300
-                             @error('description') 
+                             @error('description')
                                  border-2 border-error-text focus:ring-2 focus:ring-error-text
-                             @else 
+                             @else
                                  border-2 border-logo-gold focus:ring-2 focus:ring-logo-gold
                              @enderror"
                              required>{{ old('description') }}</textarea>
@@ -76,16 +81,16 @@
                         Price ($) <span class="text-error-text">*</span>
                     </label>
                     <div class="mt-1 relative rounded-lg shadow-sm">
-                        <input type="number" 
-                               name="price" 
+                        <input type="number"
+                               name="price"
                                id="price"
                                value="{{ old('price') }}"
                                min="0"
                                step="1000"
                                class="pl-12 px-3block w-full rounded-lg bg-black bg-opacity-50 text-menu-text transition-shadow duration-300
-                               @error('price') 
+                               @error('price')
                                    border-2 border-error-text focus:ring-2 focus:ring-error-text
-                               @else 
+                               @else
                                    border-2 border-logo-gold focus:ring-2 focus:ring-logo-gold
                                @enderror"
                                required>
@@ -99,12 +104,12 @@
                     <label for="brand" class="block text-sm font-medium text-logo-gold">
                         Brand <span class="text-error-text">*</span>
                     </label>
-                    <select name="brand" 
+                    <select name="brand"
                             id="brand"
                             class="mt-1 px-2 block w-full rounded-lg bg-black bg-opacity-50 text-menu-text transition-shadow duration-300
-                            @error('brand') 
+                            @error('brand')
                                 border-2 border-error-text focus:ring-2 focus:ring-error-text
-                            @else 
+                            @else
                                 border-2 border-logo-gold focus:ring-2 focus:ring-logo-gold
                             @enderror"
                             required>
@@ -125,8 +130,8 @@
                         Product Image <span class="text-error-text">*</span>
                     </label>
                     <div class="mt-1">
-                        <input type="file" 
-                               name="image" 
+                        <input type="file"
+                               name="image"
                                id="image"
                                accept="image/jpeg,image/png,image/jpg"
                                class="block w-full text-subheading-gold transition-all duration-300
@@ -152,7 +157,7 @@
                 </div>
 
                 <div class="flex justify-end space-x-3 pt-6">
-                    <button type="submit" 
+                    <button type="submit"
                             class="bg-logo-gold text-text-brown hover:bg-subheading-gold font-bold py-2 px-4 rounded-full transition-all duration-300 inline-flex items-center">
                         Create Product
                     </button>
@@ -171,7 +176,7 @@ document.getElementById('image').addEventListener('change', function(e) {
             this.value = '';
             return;
         }
-        
+
         if (file.size > 2 * 1024 * 1024) {
             alert('File size should not exceed 2MB');
             this.value = '';
