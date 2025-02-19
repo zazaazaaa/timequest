@@ -58,16 +58,8 @@
                     </label>
 
                     <div id="editor">
-                        <textarea name="description"
-                                    id="description"
-                                    rows="4"
-                                    class="editor mt-1 px-3 block w-full rounded-lg
-                                    @error('description')
-                                        border-2 border-error-text focus:ring-2 focus:ring-error-text
-                                    @else
-                                        border-2 border-logo-gold focus:ring-2 focus:ring-logo-gold
-                                    @enderror"
-                                    required>{{ old('description') }}</textarea>
+                        <textarea name="description" id="description" rows="4" class="editor mt-1 px-3 block w-full rounded-lg border-2 border-logo-gold focus:ring-2 focus:ring-logo-gold" required>{{ old('description') }}</textarea>
+
                     </div>
                     @error('description')
                         <p class="mt-1 text-sm text-error-text">{{ $message }}</p>

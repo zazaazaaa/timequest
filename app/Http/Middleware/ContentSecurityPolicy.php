@@ -19,7 +19,7 @@ class ContentSecurityPolicy
         $response = $next($request);
 
         $csp = "default-src 'self'; ";
-        $csp .= "script-src 'self' https://cdn.ckeditor.com; ";  
+        $csp .= "script-src 'self' https://cdn.ckeditor.com https://proxy-event.ckeditor.com ";  
         $csp .= "style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; ";
         $csp .= "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; ";
         $csp .= "img-src 'self' data:; ";
