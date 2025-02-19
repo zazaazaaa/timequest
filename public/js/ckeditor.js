@@ -5,13 +5,26 @@ import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
 import Font from '@ckeditor/ckeditor5-font/src/font';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
+import Link from '@ckeditor/ckeditor5-link/src/link';
+import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
+import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
+import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
+import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 
 ClassicEditor
     .create(document.querySelector('#editor'), {
         plugins: [
-            'Essentials', 'Paragraph', 'Bold', 'Italic', Strikethrough, Subscript, Superscript, Font,
-            ImageUpload, ImageToolbar, 'Link',
-            ...ClassicEditor.builtinPlugins  
+            Essentials, 
+            Paragraph, 
+            Bold, 
+            Italic, 
+            Strikethrough, 
+            Subscript, 
+            Superscript, 
+            Font, 
+            ImageUpload, 
+            ImageToolbar, 
+            Link
         ],
         toolbar: [
             'undo', 'redo', '|',
